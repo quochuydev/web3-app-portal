@@ -9,12 +9,14 @@
 - Betting
 - Trigger when the event finishes, what application will do when win/loss.
 
-## Tech Stack
+## Technical
 
 - Node.js 20 - Next.js 15 app router
+  - Add more log for debugging
+  - For README.md, Write simple guide for setting up each environment variables
 - Services:
   - `alchemy.com`
-  - use only eth main: `https://eth-mainnet.g.alchemy.com/v2/1W6x3iKS3c2IMj-MbgWxw`
+  - use only eth main: `https://eth-mainnet.g.alchemy.com/v2/YOUR_ALCHEMY_API_KEY`
 - FE libs:
   - `@tanstack/react-query`
   - `fetch` - default

@@ -1,28 +1,34 @@
 'use client';
 
-import { WagmiProvider, createConfig, http } from 'wagmi';
+import { WagmiConfig, createConfig, configureChains } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { metaMask } from 'wagmi/connectors';
+import { publicProvider } from 'wagmi/providers/public';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { alchemyProvider } from 'wagmi/providers/alchemy';
+
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [mainnet],
+  [
+    alchemyProvider({ 
+      apiKey: process.env.NEXT_PUBLIC_MAINNET_RPC_URL?.split('/').pop() || '' 
+    }),
+    publicProvider(),
+  ]
+);
 
 const config = createConfig({
-  chains: [mainnet],
+  autoConnect: true,
   connectors: [
-    metaMask()
+    new MetaMaskConnector({ chains }),
   ],
-  transports: {
-    [mainnet.id]: http(process.env.NEXT_PUBLIC_MAINNET_RPC_URL),
-  },
+  publicClient,
+  webSocketPublicClient,
 });
-
-const queryClient = new QueryClient();
 
 export function Web3Provider({ children }: { children: React.ReactNode }) {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
-    </WagmiProvider>
+    <WagmiConfig config={config}>
+      {children}
+    </WagmiConfig>
   );
 }
