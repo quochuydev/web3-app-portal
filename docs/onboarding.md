@@ -1,4 +1,6 @@
-As a software engineer, here's a **step-by-step technical breakdown** of the **user onboarding flow** for **Polymarket**, focusing on how a decentralized prediction platform typically works. This assumes you're building or analyzing a Web3 DApp experience:
+As a software engineer, here's a **step-by-step technical breakdown** of the **user onboarding flow** for **Polymarket**, focusing on how a decentralized prediction platform typically works.
+
+This assumes you're building or analyzing a Web3 DApp experience:
 
 ---
 

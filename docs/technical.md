@@ -1,4 +1,4 @@
-From the HAR file, I can see Polymarket’s frontend interacts with quite a few third-party and in-house services.
+Polymarket frontend interacts with quite a few third-party and in-house services.
 
 ---
 
