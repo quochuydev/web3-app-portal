@@ -3,10 +3,9 @@
 import React from 'react'
 import { Box, Typography, Chip } from '@mui/material'
 import { TrendingUp } from '@mui/icons-material'
-import { useWalletStore } from '@/store/walletStore'
 
 export function PortfolioInfo() {
-  const portfolioBalance = useWalletStore((state) => state.portfolioBalance)
+  const portfolioBalance = 1250.75 // Mock data
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {

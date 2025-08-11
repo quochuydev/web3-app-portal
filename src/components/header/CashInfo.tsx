@@ -3,10 +3,9 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { AccountBalanceWallet } from '@mui/icons-material'
-import { useWalletStore } from '@/store/walletStore'
 
 export function CashInfo() {
-  const cashBalance = useWalletStore((state) => state.cashBalance)
+  const cashBalance = 2400.50 // Mock data
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
